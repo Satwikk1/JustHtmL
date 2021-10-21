@@ -6,7 +6,9 @@
     <title>Simple Array Operations</title>
 </head>
 
-<script type="text/javascript">         
+<script type="text/javascript">
+
+    // javascript function to perform simple operations on arrays
 
     function replace_array_element()
     {
@@ -63,25 +65,6 @@
         x.value += "\n Specified Number: " + n;
 
         x.value += "\n Final Array: " + arr.slice(n);
-    }
-
-    function check_weekend()
-    {
-        var x = document.getElementById('textArea_Q5');
-        
-        given_date = 'Oct 1, 2021';
-
-        x.value = " Given Date: " + given_date;
-        
-        var dt = new Date(given_date);
-        if(dt.getDay() == 6 || dt.getDay() == 0)
-        {
-            x.value += "\n It is a Weekend";
-        }
-        else
-        {
-            x.value += "\n It is Not a Weekend";
-        }
     }
 
 </script>
@@ -146,22 +129,6 @@
         <form>
             <input type="button" value="Click me to see result" onclick="remove_right()" />
         </form>
-    </div>
-
-    <br />
-    <hr />
-    <br />
-
-    <div style="text-align: center;">
-        <h3> Q5) Write a JavaScript function to test whether a date is a weekend. </h3>
-        <textarea id="textArea_Q5" style="width: 900px; height: 100px; text-align: center;">
-            Q5) Write a JavaScript function to test whether a date is a weekend.
-        </textarea>
-        <form>
-            <input type="button" value="Click me to see result" onclick="check_weekend()" />
-        </form>
-
-        <br />
     </div>
 
 </body>
