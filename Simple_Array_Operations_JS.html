@@ -6,7 +6,9 @@
     <title>Simple Array Operations</title>
 </head>
 
-<script type="text/javascript">         
+<script type="text/javascript">
+
+    // javascript function to perform simple operations on arrays
 
     function replace_array_element()
     {
@@ -65,24 +67,54 @@
         x.value += "\n Final Array: " + arr.slice(n);
     }
 
-    function check_weekend()
+    Array.prototype.merge_Sort = function ()
     {
-        var x = document.getElementById('textArea_Q5');
-        
-        given_date = 'Oct 1, 2021';
-
-        x.value = " Given Date: " + given_date;
-        
-        var dt = new Date(given_date);
-        if(dt.getDay() == 6 || dt.getDay() == 0)
+        if (this.length <= 1) 
         {
-            x.value += "\n It is a Weekend";
+            return this;
+        }
+
+        var half = parseInt(this.length / 2);
+        var left = this.slice(0, half).merge_Sort();
+        var right = this.slice(half,     this.length).merge_Sort();
+        var merge = function (left, right) 
+        {
+        var arry = [];
+        while (left.length > 0 && right.length > 0)
+        {
+            arry.push((left[0] <= right[0]) ? left.shift() : right.shift());
+        }
+            return arry.concat(left).concat(right);
+        };
+
+        return merge(left, right);
+    };
+
+    var a = [34,7,23,32,5,62];
+    console.log(a.merge_Sort());
+
+    function amountTocoins(amount, coins) 
+    {
+        if (amount === 0) 
+        {
+            return [];
         }
         else
         {
-            x.value += "\n It is Not a Weekend";
+            if (amount >= coins[0]) 
+            {
+                left = (amount - coins[0]);
+                return [coins[0]].concat( amountTocoins(left, coins) );
+            } 
+            else
+            {
+                coins.shift();
+                return amountTocoins(amount, coins);
+            }
         }
-    }
+    } 
+    console.log(amountTocoins(46, [25, 10, 5, 2,1]));
+
 
 </script>
 
@@ -146,22 +178,6 @@
         <form>
             <input type="button" value="Click me to see result" onclick="remove_right()" />
         </form>
-    </div>
-
-    <br />
-    <hr />
-    <br />
-
-    <div style="text-align: center;">
-        <h3> Q5) Write a JavaScript function to test whether a date is a weekend. </h3>
-        <textarea id="textArea_Q5" style="width: 900px; height: 100px; text-align: center;">
-            Q5) Write a JavaScript function to test whether a date is a weekend.
-        </textarea>
-        <form>
-            <input type="button" value="Click me to see result" onclick="check_weekend()" />
-        </form>
-
-        <br />
     </div>
 
 </body>
