@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Array Operations</title>
+</head>
+
+<script type="text/javascript">         
+
+    function replace_array_element()
+    {
+        var x = document.getElementById('textArea_Q1');
+
+        arr = [1, 2, 3, 4, 5, 2, 2, 2, 9, 10, 4];
+        old_value = 2;
+        new_value = 3;
+
+        x.value = " Original Array: " + arr;
+        x.value += "\n Replacing 2 with 8";
+
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] === old_value) {
+            arr[i] = new_value;
+            }
+        }
+        x.value += "\n Final Array: " + arr;
+    }
+
+    function num_to_arr()
+    {
+        var x = document.getElementById('textArea_Q2');
+
+        var myInt = 123456789;
+        let func_num = num => Number(num);
+        var intArr = Array.from(String(myInt), func_num);
+
+        x.value = " Entered number: " + myInt;
+        x.value += "\n Resulting array: " + intArr;
+    }
+
+    function remove_left(n = 1)
+    {
+        var x = document.getElementById('textArea_Q3');
+
+        arr = [1, 2, 3, 4, 5, 6, 7];
+        n = 3;
+
+        x.value = " Original Array: " + arr;
+        x.value += "\n Specified Number: " + n;
+
+        x.value += "\n Final Array: " + arr.slice(n);
+    }
+
+    function remove_right(n = -1)
+    {
+        var x = document.getElementById('textArea_Q4');
+
+        arr = [1, 2, 3, 4, 5, 6, 7];
+        n = -3;
+
+        x.value = " Original Array: " + arr;
+        x.value += "\n Specified Number: " + n;
+
+        x.value += "\n Final Array: " + arr.slice(n);
+    }
+
+    function check_weekend()
+    {
+        var x = document.getElementById('textArea_Q5');
+        
+        given_date = 'Oct 1, 2021';
+
+        x.value = " Given Date: " + given_date;
+        
+        var dt = new Date(given_date);
+        if(dt.getDay() == 6 || dt.getDay() == 0)
+        {
+            x.value += "\n It is a Weekend";
+        }
+        else
+        {
+            x.value += "\n It is Not a Weekend";
+        }
+    }
+
+</script>
+
+<body>
+
+    <div>
+        <h1 style="text-align: center;">Simple JavaScript for Array Operations</h1>
+    </div>
+
+    <br />
+    <hr />
+    <br />
+
+    <div style="text-align: center;">
+        <h3> Q1) Write a JavaScript program to replace all the numbers with a specified number of a given array of integers. </h3>
+        <textarea id="textArea_Q1" style="width: 900px; height: 100px; text-align: center;">
+            Q1) Write a JavaScript program to replace all the numbers with a specified number of a given array of integers.
+        </textarea>
+        <form>
+            <input type="button" value="Click me to see result" onclick="replace_array_element()" />
+        </form>
+    </div>
+
+    <br />
+    <hr />
+    <br />
+
+    <div style="text-align: center;">
+        <h3> Q2) Write a JavaScript program to converts a specified number to an array of digits. </h3>
+        <textarea id="textArea_Q2" style="width: 900px; height: 100px; text-align: center;">
+            Q2) Write a JavaScript program to converts a specified number to an array of digits.
+        </textarea>
+        <form>
+            <input type="button" value="Click me to see result" onclick="num_to_arr()" />
+        </form>
+    </div>
+
+    <br />
+    <hr />
+    <br />
+
+    <div style="text-align: center;">
+        <h3> Q3) Write a JavaScript program to remove specified elements from the left of a given array of elements. </h3>
+        <textarea id="textArea_Q3" style="width: 900px; height: 100px; text-align: center;">
+            Q3) Write a JavaScript program to remove specified elements from the left of a given array of elements.
+        </textarea>
+        <form>
+            <input type="button" value="Click me to see result" onclick="remove_left()" />
+        </form>
+    </div>
+
+    <br />
+    <hr />
+    <br />
+
+    <div style="text-align: center;">
+        <h3> Q4) Write a JavaScript program to remove specified elements from the right of a given array of elements. </h3>
+        <textarea id="textArea_Q4" style="width: 900px; height: 100px; text-align: center;">
+            Q4) Write a JavaScript program to remove specified elements from the right of a given array of elements.
+        </textarea>
+        <form>
+            <input type="button" value="Click me to see result" onclick="remove_right()" />
+        </form>
+    </div>
+
+    <br />
+    <hr />
+    <br />
+
+    <div style="text-align: center;">
+        <h3> Q5) Write a JavaScript function to test whether a date is a weekend. </h3>
+        <textarea id="textArea_Q5" style="width: 900px; height: 100px; text-align: center;">
+            Q5) Write a JavaScript function to test whether a date is a weekend.
+        </textarea>
+        <form>
+            <input type="button" value="Click me to see result" onclick="check_weekend()" />
+        </form>
+
+        <br />
+    </div>
+
+</body>
+</html>
